@@ -188,9 +188,10 @@ void ColorMaker::writeXML() {
     writer.writeAttribute("Version", "1.0");  // 属性
 
     writer.writeStartElement("Blog");  // 开始子元素 <Blog>
-    writer.writeTextElement(QString::fromLocal8Bit("作者"), QString::fromLocal8Bit("一去丶二三里"));
-    writer.writeTextElement(QString::fromLocal8Bit("主页"), "http://blog.csdn.net/liang19890820");
-    writer.writeTextElement(QString::fromLocal8Bit("个人说明"), QString::fromLocal8Bit("青春不老，奋斗不止！"));
+    writer.writeTextElement(QString::fromLocal8Bit("num"), QString::fromLocal8Bit("一去丶二三里"));
+    writer.writeTextElement(QString::fromLocal8Bit("avg"), "http://blog.csdn.net/liang19890820");
+    writer.writeTextElement(QString::fromLocal8Bit("max"), QString::fromLocal8Bit("青春不老，奋斗不止！"));
+    writer.writeTextElement(QString::fromLocal8Bit("min"), QString::fromLocal8Bit("一去丶二三里"));
     writer.writeEntityReference("Copyright");
     writer.writeCDATA(QString::fromLocal8Bit("<Qt分享&&交流>368241647</Qt分享&&交流>"));
     writer.writeCharacters(">");
