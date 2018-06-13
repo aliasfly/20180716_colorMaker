@@ -22,18 +22,6 @@ Rectangle {
             border.width: 1.5;
             border.color: "#888888";
 
-            Button{                                             //OK
-                id:quit;
-                text:"x";
-                anchors.right: waikuang.right;
-                anchors.rightMargin: 5;
-                anchors.top:waikuang.top;
-                anchors.topMargin: 5;
-                onClicked: {
-                    Qt.quit();
-                }
-            }
-
             Button{                                            //OK
                 id:openfile;
                 anchors.top:waikuang.top;
