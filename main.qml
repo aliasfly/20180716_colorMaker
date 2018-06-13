@@ -51,6 +51,7 @@ Rectangle {
                 onAccepted: {
                     console.log("You chose: " + fileDialog.fileUrl);
                     colorMaker.ReadFile();
+                    console.log("read  OK!!!");
                 }
                 onRejected: {
                     console.log("Canceled")

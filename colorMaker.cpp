@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <stdlib.h>
-using namespace std;
 
 ColorMaker::ColorMaker(QObject *parent)
     :QObject(parent)
@@ -27,13 +26,13 @@ void ColorMaker::ProduceRange()
     for(int i=0;i<10;i++)
     {
        a[i]=rand()%20;
-       cout<<a[i]<<" ";
+       qDebug()<<a[i]<<" ";
     }
-    cout<<endl;
 }
 
 void ColorMaker::ReadFile()
 {
+    qint64 pos;
     QFile file("///home/zx/Documents/QplotTest/testdata.txt");// _filePath
     if (!file.open(QIODevice::ReadOnly))
     {
@@ -42,17 +41,19 @@ void ColorMaker::ReadFile()
         return;
     }
     qDebug()<<"open file ok";
-    qDebug()<< file.fileName() << file.exists();
+    qDebug()<< file.fileName() << file.exists();    
+    pos = file.size();
+    qDebug()<<"file.size="<<pos<<endl;
     while (!file.atEnd())
     {
         QByteArray dat = file.read(30);
         char *da=dat.data();
         while(*da)
         {
-            cout<<*da;
+            qDebug()<<*da;
             da++;
         }
-    }
+    }   
 }
 
 
