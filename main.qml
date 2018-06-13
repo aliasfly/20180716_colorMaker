@@ -79,6 +79,11 @@ Rectangle {
                 text:"export"
                 anchors.left: rangemake.right;
                 anchors.leftMargin: 5;
+                onClicked:{
+                    console.log("writeXML start");
+                    colorMaker.writeXML();
+                    console.log("writeXML end");
+                }
             }
 
             Rectangle{

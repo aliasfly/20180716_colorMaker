@@ -13,6 +13,7 @@ public:
 public slots:
     void ProduceRange();
     void ReadFile();
+    void writeXML();
 };
 
 
