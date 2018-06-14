@@ -3,10 +3,12 @@ TEMPLATE = app
 QT += qml quick
 
 SOURCES += main.cpp \
-    colorMaker.cpp
+    colorMaker.cpp \
+    dataStore.cpp
 
 
 HEADERS += \
-    colorMaker.h
+    colorMaker.h \
+    dataStore.h
 
 RESOURCES += qml.qrc
