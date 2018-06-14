@@ -277,8 +277,24 @@ Rectangle {
             }
         }
 
-
-
+Connections{
+    target: dataStore;
+    onStrChanged:{
+        textInputLine1.validator=str;
+    }
+}
+Connections{
+    target: dataStore;
+    onStr2Changed:{
+        textInputLine2.validator=str2;
+    }
+}
+Connections{
+    target: dataStore;
+    onStr3Changed:{
+        textInputLine3.validator=str3;
+    }
+}
 
 
 

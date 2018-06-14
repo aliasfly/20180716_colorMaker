@@ -796,6 +796,7 @@ moc_dataStore.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
 		dataStore.h \
 		moc_predefs.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
@@ -1271,7 +1272,8 @@ dataStore.o: dataStore.cpp dataStore.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataStore.o dataStore.cpp
 
 qrc_qml.o: qrc_qml.cpp 
