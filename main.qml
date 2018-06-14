@@ -96,7 +96,7 @@ Rectangle {
                 border.color: "#888888";
                 border.width: 1.5;
                 z:2;
-                Button{
+                Button{                             //inputWindowOk;
                     id:inputWindowOk;
                     anchors.right:inputWindow.right;
                     anchors.rightMargin: 3;
@@ -107,7 +107,7 @@ Rectangle {
 
                     }
                 }
-                Button{
+                Button{                               //inputWindowCancel
                     id:inputWindowCancel;
                     anchors.right:inputWindowOk.left;
                     anchors.rightMargin: 2;
@@ -115,10 +115,10 @@ Rectangle {
                     anchors.bottomMargin: 3;
                     text:"Cancel"
                     onClicked: {
-
+                        inputWindow.visible=false;
                     }
                 }
-                Text{
+                Text{                                //inputWindowLine1
                     id:inputWindowLine1;
                     text:"AAA<=20:";
                     font.pixelSize: 24;
@@ -136,7 +136,7 @@ Rectangle {
                         color: "red";
                     }
                 }
-                Text{
+                Text{                                //inputWindowLine2
                     id:inputWindowLine2;
                     text:"BBB<=30:";
                     font.pixelSize: 24;
@@ -154,7 +154,7 @@ Rectangle {
                         color: "red";
                     }
                 }
-                Text{
+                Text{                               //inputWindowLine3
                     id:inputWindowLine3;
                     text:"CCC<=40:";
                     font.pixelSize: 24;
