@@ -32,7 +32,7 @@ Rectangle {
                 onClicked: fileDialog.open();
             }
 
-            FileDialog {
+            FileDialog {                                       //OK
                 id: fileDialog
                 title: "Please choose a file"
                 folder: shortcuts.home
@@ -57,12 +57,13 @@ Rectangle {
                 onClicked:
                 {
                    messageDialog.open();
+                   inputWindow.visible=true;
                 }
             }
             MessageDialog {                             //OK
-                id: messageDialog
+                id: messageDialog;
                 title: "range A-B";
-                text: "please enter number A and number B"
+                text: "enter number:";
                 onAccepted: {
                     console.log("messageDialog.show up.");
                     //put handle function;or connected function;
@@ -72,7 +73,7 @@ Rectangle {
             }
 
 
-            Button{
+            Button{                                    //OK
                 id:xmlout;
                 anchors.top:waikuang.top;
                 anchors.topMargin: 5;
@@ -85,6 +86,94 @@ Rectangle {
                     console.log("writeXML end");
                 }
             }
+
+            Rectangle{                               //input window;
+                id:inputWindow;
+                visible: false;
+                width: 300;
+                height: 150;
+                anchors.centerIn: waikuang;
+                border.color: "#888888";
+                border.width: 1.5;
+                z:2;
+                Button{
+                    id:inputWindowOk;
+                    anchors.right:inputWindow.right;
+                    anchors.rightMargin: 3;
+                    anchors.bottom: inputWindow.bottom;
+                    anchors.bottomMargin: 3;
+                    text:"Ok"
+                    onClicked: {
+
+                    }
+                }
+                Button{
+                    id:inputWindowCancel;
+                    anchors.right:inputWindowOk.left;
+                    anchors.rightMargin: 2;
+                    anchors.bottom: inputWindow.bottom;
+                    anchors.bottomMargin: 3;
+                    text:"Cancel"
+                    onClicked: {
+
+                    }
+                }
+                Text{
+                    id:inputWindowLine1;
+                    text:"AAA<=20:";
+                    font.pixelSize: 24;
+                    anchors.left:inputWindow.left;
+                    anchors.leftMargin:6;
+                    anchors.top: inputWindow.top;
+                    anchors.topMargin: 6;
+                    TextInput{
+                        id:textInputLine1;
+                        width: 100;
+                        height: 50;
+                        font.pixelSize: 24;
+                        anchors.left:inputWindowLine1.right;
+                        validator: IntValidator{top:20; bottom: 1;}
+                        color: "red";
+                    }
+                }
+                Text{
+                    id:inputWindowLine2;
+                    text:"BBB<=30:";
+                    font.pixelSize: 24;
+                    anchors.left:inputWindow.left;
+                    anchors.leftMargin:6;
+                    anchors.top: inputWindowLine1.bottom;
+                    anchors.topMargin: 6;
+                    TextInput{
+                        id:textInputLine2;
+                        width: 100;
+                        height: 50;
+                        font.pixelSize: 24;
+                        anchors.left:inputWindowLine2.right;
+                        validator: IntValidator{top:30; bottom: 1;}
+                        color: "red";
+                    }
+                }
+                Text{
+                    id:inputWindowLine3;
+                    text:"CCC<=40:";
+                    font.pixelSize: 24;
+                    anchors.left:inputWindow.left;
+                    anchors.leftMargin:6;
+                    anchors.top: inputWindowLine2.bottom;
+                    anchors.topMargin: 6;
+                    TextInput{
+                        id:textInputLine3;
+                        width: 100;
+                        height: 50;
+                        font.pixelSize: 24;
+                        anchors.left:inputWindowLine3.right;
+                        validator: IntValidator{top:40; bottom: 1;}
+                        color: "red";
+                    }
+                }
+            }
+
 
             Rectangle{
                 id:display;
