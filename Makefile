@@ -52,12 +52,14 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		colorMaker.cpp \
-		dataStore.cpp qrc_qml.cpp \
+		dataStore.cpp \
+		dataPlot.cpp qrc_qml.cpp \
 		moc_colorMaker.cpp \
 		moc_dataStore.cpp
 OBJECTS       = main.o \
 		colorMaker.o \
 		dataStore.o \
+		dataPlot.o \
 		qrc_qml.o \
 		moc_colorMaker.o \
 		moc_dataStore.o
@@ -243,9 +245,11 @@ DIST          = /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/yacc.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/lex.prf \
 		colorMaker.pro colorMaker.h \
-		dataStore.h main.cpp \
+		dataStore.h \
+		dataPlot.h main.cpp \
 		colorMaker.cpp \
-		dataStore.cpp
+		dataStore.cpp \
+		dataPlot.cpp
 QMAKE_TARGET  = colorMaker
 DESTDIR       = 
 TARGET        = colorMaker
@@ -650,8 +654,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents colorMaker.h dataStore.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp colorMaker.cpp dataStore.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents colorMaker.h dataStore.h dataPlot.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp colorMaker.cpp dataStore.cpp dataPlot.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1144,7 +1148,8 @@ main.o: main.cpp /opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QGuiApplication \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmlpropertymap.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qtqmlversion.h \
 		colorMaker.h \
-		dataStore.h
+		dataStore.h \
+		dataPlot.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 colorMaker.o: colorMaker.cpp colorMaker.h \
@@ -1290,6 +1295,9 @@ dataStore.o: dataStore.cpp dataStore.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataStore.o dataStore.cpp
+
+dataPlot.o: dataPlot.cpp dataPlot.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataPlot.o dataPlot.cpp
 
 qrc_qml.o: qrc_qml.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_qml.o qrc_qml.cpp

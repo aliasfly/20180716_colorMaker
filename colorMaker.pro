@@ -4,11 +4,13 @@ QT += qml quick
 
 SOURCES += main.cpp \
     colorMaker.cpp \
-    dataStore.cpp
+    dataStore.cpp \
+    dataPlot.cpp
 
 
 HEADERS += \
     colorMaker.h \
-    dataStore.h
+    dataStore.h \
+    dataPlot.h
 
 RESOURCES += qml.qrc

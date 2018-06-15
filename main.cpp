@@ -3,6 +3,8 @@
 #include <QtQml>
 #include "colorMaker.h"
 #include "dataStore.h"
+#include "dataPlot.h"
+
 
 
 int main(int argc, char *argv[])
