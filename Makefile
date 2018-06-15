@@ -1273,7 +1273,22 @@ dataStore.o: dataStore.cpp dataStore.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDebug \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataStore.o dataStore.cpp
 
 qrc_qml.o: qrc_qml.cpp 

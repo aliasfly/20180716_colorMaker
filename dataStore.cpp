@@ -1,4 +1,5 @@
 #include "dataStore.h"
+#include <QDebug>
 
 
 
@@ -16,6 +17,14 @@ DataStore::~DataStore()
 {
 
 }
+
+
+void DataStore::getstr(int a)
+{
+    AAA_currentstr=a;
+    qDebug()<<"AAA_currentstr="<<AAA_currentstr;
+}
+
 
 
 

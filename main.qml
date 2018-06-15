@@ -134,6 +134,9 @@ Rectangle {
                         anchors.left:inputWindowLine1.right;
                         validator: IntValidator{top:20; bottom: 1;}
                         color: "red";
+                        onAccepted: {
+                            dataStore.getstr(text);
+                        }
                     }
                 }
                 Text{                                //inputWindowLine2
@@ -280,7 +283,7 @@ Rectangle {
 Connections{
     target: dataStore;
     onStrChanged:{
-        textInputLine1.validator=str;
+        textInputLine1.text=str;
     }
 }
 Connections{

@@ -26,6 +26,8 @@ signals:
     void strChanged(const int &str);
     void str2Changed(const int &str2);
     void str3Changed(const int &str3);
+public slots:
+    void getstr(int);
 
 private:
     int AAA_currentstr;
