@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick
+QT += qml quick charts
 
 SOURCES += main.cpp \
     colorMaker.cpp \

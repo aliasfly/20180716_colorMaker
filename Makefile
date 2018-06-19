@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++
+INCPATH       = -I. -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++
 QMAKE         = /opt/Qt5.10.0/5.10.0/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = colorMaker1.0.0
 DISTDIR = /home/zx/Documents/colorMaker/.tmp/colorMaker1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/opt/Qt5.10.0/5.10.0/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/opt/Qt5.10.0/5.10.0/gcc_64/lib -lQt5Quick -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/opt/Qt5.10.0/5.10.0/gcc_64/lib -lQt5Quick -lQt5Charts -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -55,14 +55,16 @@ SOURCES       = main.cpp \
 		dataStore.cpp \
 		dataPlot.cpp qrc_qml.cpp \
 		moc_colorMaker.cpp \
-		moc_dataStore.cpp
+		moc_dataStore.cpp \
+		moc_dataPlot.cpp
 OBJECTS       = main.o \
 		colorMaker.o \
 		dataStore.o \
 		dataPlot.o \
 		qrc_qml.o \
 		moc_colorMaker.o \
-		moc_dataStore.o
+		moc_dataStore.o \
+		moc_dataPlot.o
 DIST          = /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/common/unix.conf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/common/linux.conf \
@@ -237,6 +239,7 @@ DIST          = /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/resources.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/moc.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/unix/opengl.prf \
+		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/uic.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/unix/thread.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/qmake_use.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/file_copies.prf \
@@ -435,6 +438,7 @@ Makefile: colorMaker.pro /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++/qmake.con
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/resources.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/moc.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/unix/opengl.prf \
+		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/uic.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/unix/thread.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/qmake_use.prf \
 		/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/file_copies.prf \
@@ -445,6 +449,8 @@ Makefile: colorMaker.pro /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++/qmake.con
 		colorMaker.pro \
 		qml.qrc \
 		/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Quick.prl \
+		/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Charts.prl \
+		/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Widgets.prl \
 		/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Gui.prl \
 		/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Qml.prl \
 		/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Network.prl \
@@ -624,6 +630,7 @@ Makefile: colorMaker.pro /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++/qmake.con
 /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/resources.prf:
 /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/moc.prf:
 /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/unix/opengl.prf:
+/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/uic.prf:
 /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/unix/thread.prf:
 /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/qmake_use.prf:
 /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/file_copies.prf:
@@ -634,6 +641,8 @@ Makefile: colorMaker.pro /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++/qmake.con
 colorMaker.pro:
 qml.qrc:
 /opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Quick.prl:
+/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Charts.prl:
+/opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Widgets.prl:
 /opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Gui.prl:
 /opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Qml.prl:
 /opt/Qt5.10.0/5.10.0/gcc_64/lib/libQt5Network.prl:
@@ -692,9 +701,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_colorMaker.cpp moc_dataStore.cpp
+compiler_moc_header_make_all: moc_colorMaker.cpp moc_dataStore.cpp moc_dataPlot.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_colorMaker.cpp moc_dataStore.cpp
+	-$(DEL_FILE) moc_colorMaker.cpp moc_dataStore.cpp moc_dataPlot.cpp
 moc_colorMaker.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
@@ -748,7 +757,7 @@ moc_colorMaker.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		colorMaker.h \
 		moc_predefs.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
-	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/zx/Documents/colorMaker -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include colorMaker.h -o moc_colorMaker.cpp
+	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/zx/Documents/colorMaker -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include colorMaker.h -o moc_colorMaker.cpp
 
 moc_dataStore.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
@@ -804,12 +813,144 @@ moc_dataStore.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		dataStore.h \
 		moc_predefs.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
-	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/zx/Documents/colorMaker -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dataStore.h -o moc_dataStore.cpp
+	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/zx/Documents/colorMaker -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dataStore.h -o moc_dataStore.cpp
+
+moc_dataPlot.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChartGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchartglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QtGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractAxis \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractaxis.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QPen \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qmatrix.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qline.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpainterpath.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QFont \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QScatterSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qscatterseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qxyseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QBrush \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QXYSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChart \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchart.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QLegend \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qlegend.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QGraphicsWidget \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMargins \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMap \
+		dataPlot.h \
+		moc_predefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
+	/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/opt/Qt5.10.0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/zx/Documents/colorMaker -I/opt/Qt5.10.0/5.10.0/gcc_64/include -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQuick -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtNetwork -I/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dataPlot.h -o moc_dataPlot.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
+compiler_uic_make_all:
+compiler_uic_clean:
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -1149,7 +1290,37 @@ main.o: main.cpp /opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QGuiApplication \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qtqmlversion.h \
 		colorMaker.h \
 		dataStore.h \
-		dataPlot.h
+		dataPlot.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChartGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchartglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QtGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractAxis \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractaxis.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QPen \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QFont \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QScatterSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qscatterseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qxyseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QBrush \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QXYSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChart \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchart.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QLegend \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qlegend.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QGraphicsWidget \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 colorMaker.o: colorMaker.cpp colorMaker.h \
@@ -1296,7 +1467,132 @@ dataStore.o: dataStore.cpp dataStore.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataStore.o dataStore.cpp
 
-dataPlot.o: dataPlot.cpp dataPlot.h
+dataPlot.o: dataPlot.cpp dataPlot.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnamespace.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qconfig.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtcore-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsysinfo.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlogging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qflags.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmutex.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qnumeric.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qversiontagging.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstring.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qchar.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrefcount.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qarraydata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringliteral.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringview.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringbuilder.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qalgorithms.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiterator.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpair.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringlist.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qregexp.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qstringmatcher.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcoreevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmetatype.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChartGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchartglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QtGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractAxis \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractaxis.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QPen \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qmatrix.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qline.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpainterpath.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QFont \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QScatterSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qscatterseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qxyseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QBrush \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QXYSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChart \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchart.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QLegend \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qlegend.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QGraphicsWidget \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMargins \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataPlot.o dataPlot.cpp
 
 qrc_qml.o: qrc_qml.cpp 
@@ -1307,6 +1603,9 @@ moc_colorMaker.o: moc_colorMaker.cpp
 
 moc_dataStore.o: moc_dataStore.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dataStore.o moc_dataStore.cpp
+
+moc_dataPlot.o: moc_dataPlot.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dataPlot.o moc_dataPlot.cpp
 
 ####### Install
 
