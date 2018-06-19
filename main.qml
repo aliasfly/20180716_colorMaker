@@ -123,7 +123,7 @@ Rectangle {
                 }
                 Text{                                //inputWindowLine1
                     id:inputWindowLine1;
-                    text:"AAA<=20:";
+                    text:"start_value:";
                     font.pixelSize: 24;
                     anchors.left:inputWindow.left;
                     anchors.leftMargin:6;
@@ -144,7 +144,7 @@ Rectangle {
                 }
                 Text{                                //inputWindowLine2
                     id:inputWindowLine2;
-                    text:"BBB<=30:";
+                    text:"stop_value:";
                     font.pixelSize: 24;
                     anchors.left:inputWindow.left;
                     anchors.leftMargin:6;
@@ -162,7 +162,7 @@ Rectangle {
                 }
                 Text{                               //inputWindowLine3
                     id:inputWindowLine3;
-                    text:"CCC<=40:";
+                    text:"random_n:";
                     font.pixelSize: 24;
                     anchors.left:inputWindow.left;
                     anchors.leftMargin:6;
