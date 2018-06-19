@@ -22,6 +22,9 @@ signals:
     void xvalueChanged(const int &xvalue);
     void yvalueChanged(const int &yvalue);
 
+public slots:
+    void produceXYvalue();
+
 private:
     int _xvalue;
     int _yvalue;

@@ -33,3 +33,13 @@ void DataPlot::setYvalue(const int &yvalue)
     emit yvalueChanged(_yvalue);
 }
 
+
+
+void DataPlot::produceXYvalue()
+{
+    for(int i=0;i<10;i++)
+    {
+        DataPlot::setXvalue(i);
+        DataPlot::setYvalue(i*2);
+    }
+}

@@ -69,7 +69,8 @@ Rectangle {
                 onAccepted: {
                     console.log("messageDialog.show up.");
                     //put handle function;or connected function;
-                    colorMaker.ProduceRange();
+                    openFile.ProduceRange();
+                    dataPlot.produceXYvalue();
                 }
                 Component.onCompleted: visible = false
             }
@@ -294,7 +295,7 @@ Rectangle {
 Connections{
     target:dataPlot;
     onXvalueChanged:{
-        chartLineSeries.append(xvalue,yvalue);
+        chartLineSeries.append(xvalue,0);
     }
 }
 
