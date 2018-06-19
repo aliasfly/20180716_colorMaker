@@ -1,24 +1,35 @@
 #include "dataPlot.h"
 
+DataPlot::DataPlot(QObject *parent)
+    :QObject(parent)
+    ,_xvalue(0)
+    ,_yvalue(0)
+{
 
-//DataPlot::DataPlot(QObject *parent): QObject(parent)
-//{
+}
 
-//}
+DataPlot::~DataPlot()
+{
 
-//DataPlot::~DataPlot()
-//{
-//    _nameToSeriesMap.clear();
-//    _axisX = _axisY = NULL;
-//}
+}
 
+int DataPlot::xvalue() const
+{
+    return _xvalue;
+}
+void DataPlot::setXvalue(const int &xvalue)
+{
+    _xvalue=xvalue;
+    emit xvalueChanged(_xvalue);
+}
 
+int DataPlot::yvalue() const
+{
+    return _yvalue;
+}
+void DataPlot::setYvalue(const int &yvalue)
+{
+    _yvalue=yvalue;
+    emit yvalueChanged(_yvalue);
+}
 
-
-
-//QAbstractAxis* axisX() const { return _axisX; }
-//QAbstractAxis* axisY() const { return _axisY; }
-
-
-//void setAxisX(QAbstractAxis* axisX);
-//void setAxisY(QAbstractAxis* axisY);

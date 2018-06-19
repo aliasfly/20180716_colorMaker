@@ -207,12 +207,10 @@ Rectangle {
                       anchors.fill: parent;
                       antialiasing: true;
 
-                      StackedBarSeries {
-                        id: mySeries
-                        axisX: BarCategoryAxis { categories: ["2007", "2008", "2009", "2010", "2011", "2012" ] }
-                        BarSet { label: "Bob"; values: [2, 2, 3, 4, 5, 6] }
-                        BarSet { label: "Susan"; values: [5, 1, 2, 4, 1, 7] }
-                        BarSet { label: "James"; values: [3, 5, 8, 13, 5, 8] }
+                      LineSeries {
+                         id:chartLineSeries;
+                         name: "LineSeries"
+//                         XYPoint { x: pointx; y: pointy}
                     }
                   }
             }
@@ -294,6 +292,19 @@ Rectangle {
                 }
             }
         }
+Connections{
+    target:dataPlot;
+    onXvalueChanged:{
+//        chartLineSeries.axisX=xvalue;
+    }
+}
+Connections{
+    target:dataPlot;
+    onYvalueChanged:{
+//        chartLineSeries.axisY=yvalue;
+    }
+}
+
 
 Connections{
     target: dataStore;

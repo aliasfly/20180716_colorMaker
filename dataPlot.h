@@ -1,42 +1,31 @@
 #ifndef DATAPLOT_H
 #define DATAPLOT_H
-
 #include <QObject>
-#include <QAbstractSeries>
-#include <QAbstractAxis>
-#include <QScatterSeries>
-#include <QXYSeries>
-#include <QChart>
-#include <QMap>
-
-QT_CHARTS_USE_NAMESPACE
 
 
-class DataPlot: public QObject
+class DataPlot  : public QObject
 {
-//    Q_OBJECT
-//    Q_PROPERTY(QAbstractAxis* axisX READ axisX WRITE setAxisX)
-//    Q_PROPERTY(QAbstractAxis* axisY READ axisY WRITE setAxisY)
-//public:
-//    DataPlot(QObject *parent = nullptr);
-//    ~DataPlot();
+    Q_OBJECT
+    Q_PROPERTY(int xvalue READ xvalue WRITE setXvalue NOTIFY xvalueChanged)
+    Q_PROPERTY(int yvalue READ yvalue WRITE setYvalue NOTIFY yvalueChanged)
+public:
+    DataPlot(QObject *parent = 0);
+    ~DataPlot();
 
-//    QAbstractAxis* axisX() const { return _axisX; }
-//    QAbstractAxis* axisY() const { return _axisY; }
+    int xvalue() const;
+    void setXvalue(const int &xvalue);
 
+    int yvalue() const;
+    void setYvalue(const int &yvalue);
 
-//    void setAxisX(QAbstractAxis* axisX);
-//    void setAxisY(QAbstractAxis* axisY);
+signals:
+    void xvalueChanged(const int &xvalue);
+    void yvalueChanged(const int &yvalue);
 
-
-//public slots:
-//    void seriesAdded(QAbstractSeries* series);
-//    void seriesRemoved(QAbstractSeries* series);
-
-//private:
-//    QAbstractAxis*   _axisX;
-//    QAbstractAxis*   _axisY;
-//    QMap<QString, QAbstractSeries*> _nameToSeriesMap;
+private:
+    int _xvalue;
+    int _yvalue;
 
 };
+
 #endif   //DATAPLOT_H
