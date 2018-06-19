@@ -14,7 +14,7 @@ Rectangle {
         color: "red";
     }
     Rectangle{
-            id:waikuang;
+            id:outlineBorder;
             width: 600;
             height: 450;
             anchors.top:parent.top;
@@ -26,10 +26,10 @@ Rectangle {
 
             Button{                                            //OK
                 id:openfile;
-                anchors.top:waikuang.top;
+                anchors.top:outlineBorder.top;
                 anchors.topMargin: 5;
                 text:"open";
-                anchors.left: waikuang.left;
+                anchors.left: outlineBorder.left;
                 anchors.leftMargin: 5;
                 onClicked: fileDialog.open();
             }
@@ -51,7 +51,7 @@ Rectangle {
 
             Button{                                     //OK
                 id:rangemake;
-                anchors.top:waikuang.top;
+                anchors.top:outlineBorder.top;
                 anchors.topMargin: 5;
                 text:"make";
                 anchors.left: openfile.right;
@@ -78,7 +78,7 @@ Rectangle {
 
             Button{                                    //OK
                 id:xmlout;
-                anchors.top:waikuang.top;
+                anchors.top:outlineBorder.top;
                 anchors.topMargin: 5;
                 text:"export"
                 anchors.left: rangemake.right;
@@ -95,7 +95,7 @@ Rectangle {
                 visible: false;
                 width: 300;
                 height: 150;
-                anchors.centerIn: waikuang;
+                anchors.centerIn: outlineBorder;
                 border.color: "#888888";
                 border.width: 1.5;
                 z:2;
@@ -182,27 +182,27 @@ Rectangle {
 
 
             Rectangle{
-                id:display;
+                id:data_statistic;
                 width: 590;
                 height: 90;
-                anchors.bottom: waikuang.bottom;
+                anchors.bottom: outlineBorder.bottom;
                 anchors.bottomMargin: 5;
-                anchors.left: waikuang.left;
+                anchors.left: outlineBorder.left;
                 anchors.leftMargin: 5;
                 border.width: 1.5;
-                border.color: "#888888";
+                border.color:"#888888";
             }
 
             Rectangle{
-                id:plot;
+                id:chartplot;
                 width: 590;
                 height: 300;
-                anchors.left: waikuang.left;
+                anchors.left: outlineBorder.left;
                 anchors.leftMargin: 5;
-                anchors.bottom:display.top;
+                anchors.bottom:data_statistic.top;
                 anchors.bottomMargin: 5;
                 border.width: 1.5;
-                border.color: "red"//"#888888";
+                border.color: "#888888";
                 ChartView {
                       title: "Line";
                       anchors.fill: parent;
@@ -221,9 +221,9 @@ Rectangle {
                 height: 80;
                 border.width: 1.5;
                 border.color: "#888888";
-                anchors.left:display.left;
+                anchors.left:data_statistic.left;
                 anchors.leftMargin: 15;
-                anchors.top:display.top;
+                anchors.top:data_statistic.top;
                 anchors.topMargin: 5;
                 Text{
                     id: numid;
@@ -242,7 +242,7 @@ Rectangle {
                 border.color: "#888888";
                 anchors.left:rcnumid.right;
                 anchors.leftMargin: 5;
-                anchors.top:display.top;
+                anchors.top:data_statistic.top;
                 anchors.topMargin: 5;
                 Text{
                     id: avgid;
@@ -262,7 +262,7 @@ Rectangle {
                 border.color: "#888888";
                 anchors.left:rcavgid.right;
                 anchors.leftMargin: 5;
-                anchors.top:display.top;
+                anchors.top:data_statistic.top;
                 anchors.topMargin: 5;
                 Text{
                     id: maxid;
@@ -281,7 +281,7 @@ Rectangle {
                 border.color: "#888888";
                 anchors.left:rcmaxid.right;
                 anchors.leftMargin: 5;
-                anchors.top:display.top;
+                anchors.top:data_statistic.top;
                 anchors.topMargin: 5;
                 Text{
                     id: minid;
