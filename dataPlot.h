@@ -14,29 +14,29 @@ QT_CHARTS_USE_NAMESPACE
 
 class DataPlot: public QObject
 {
-    Q_OBJECT
-    Q_PROPERTY(QAbstractAxis* axisX READ axisX WRITE setAxisX)
-    Q_PROPERTY(QAbstractAxis* axisY READ axisY WRITE setAxisY)
-public:
-    DataPlot(QObject *parent = nullptr);
-    ~DataPlot();
+//    Q_OBJECT
+//    Q_PROPERTY(QAbstractAxis* axisX READ axisX WRITE setAxisX)
+//    Q_PROPERTY(QAbstractAxis* axisY READ axisY WRITE setAxisY)
+//public:
+//    DataPlot(QObject *parent = nullptr);
+//    ~DataPlot();
 
-    QAbstractAxis* axisX() const { return _axisX; }
-    QAbstractAxis* axisY() const { return _axisY; }
-
-
-    void setAxisX(QAbstractAxis* axisX);
-    void setAxisY(QAbstractAxis* axisY);
+//    QAbstractAxis* axisX() const { return _axisX; }
+//    QAbstractAxis* axisY() const { return _axisY; }
 
 
-public slots:
-    void seriesAdded(QAbstractSeries* series);
-    void seriesRemoved(QAbstractSeries* series);
+//    void setAxisX(QAbstractAxis* axisX);
+//    void setAxisY(QAbstractAxis* axisY);
 
-private:
-    QAbstractAxis*   _axisX;
-    QAbstractAxis*   _axisY;
-    QMap<QString, QAbstractSeries*> _nameToSeriesMap;
+
+//public slots:
+//    void seriesAdded(QAbstractSeries* series);
+//    void seriesRemoved(QAbstractSeries* series);
+
+//private:
+//    QAbstractAxis*   _axisX;
+//    QAbstractAxis*   _axisY;
+//    QMap<QString, QAbstractSeries*> _nameToSeriesMap;
 
 };
 #endif   //DATAPLOT_H

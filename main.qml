@@ -1,6 +1,7 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.3
+import QtCharts 2.2
 
 Rectangle {
     width: 640;
@@ -199,7 +200,24 @@ Rectangle {
                 anchors.bottom:display.top;
                 anchors.bottomMargin: 5;
                 border.width: 1.5;
-                border.color: "#888888";
+                border.color: "red"//"#888888";
+                ChartView {
+                    id: chartView
+                    animationOptions: ChartView.NoAnimation
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.left: columnlist.right
+                    anchors.topMargin: ScreenTools.defaultFontPixelHeight
+                    anchors.bottomMargin: ScreenTools.defaultFontPixelHeight
+                    anchors.rightMargin: ScreenTools.defaultFontPixelHeight
+                    legend.visible: false
+                    titleFont.pointSize: ScreenTools.defaultFontPointSize / 2
+                    property bool hovered: false
+                    property point pressedPoint: Qt.point( 0, 0 )
+                    onSeriesAdded: dataSource.seriesAdded(series)
+                    onSeriesRemoved: dataSource.seriesRemoved(series)
+                }
             }
 
             Rectangle{
