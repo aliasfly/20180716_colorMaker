@@ -19,11 +19,8 @@ int DataPlot::xvalue() const
 }
 void DataPlot::setXvalue(const int &xvalue)
 {
-    for(int i=0;i<30;i++)
-    {
         _xvalue=xvalue;
         emit xvalueChanged(_xvalue);
-    }
 }
 
 int DataPlot::yvalue() const
