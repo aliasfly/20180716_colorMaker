@@ -1,5 +1,5 @@
-#include <QtWidgets/QApplication>
-#include <QtQuick/QQuickView>
+#include <QApplication>
+#include <QQuickView>
 #include <QtQml>
 #include "colorMaker.h"
 #include "dataStore.h"
@@ -10,14 +10,6 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QQuickView viewer;
-
-#ifdef Q_OS_WIN
-    QString extraImportPath(QStringLiteral("%1/../../../../%2"));
-#else
-    QString extraImportPath(QStringLiteral("%1/../../../%2"));
-#endif
-    viewer.engine()->addImportPath(extraImportPath.arg(QGuiApplication::applicationDirPath(),
-                                      QString::fromLatin1("qml")));
 
     QObject::connect(viewer.engine(), SIGNAL(quit()), &app, SLOT(quit()));//quit_use
     viewer.rootContext()->setContextProperty("colorMaker", new ColorMaker);
