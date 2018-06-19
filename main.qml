@@ -202,21 +202,93 @@ Rectangle {
                 border.width: 1.5;
                 border.color: "red"//"#888888";
                 ChartView {
-                    id: chartView
-                    animationOptions: ChartView.NoAnimation
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    anchors.bottom: parent.bottom
-                    anchors.left: columnlist.right
-                    anchors.topMargin: ScreenTools.defaultFontPixelHeight
-                    anchors.bottomMargin: ScreenTools.defaultFontPixelHeight
-                    anchors.rightMargin: ScreenTools.defaultFontPixelHeight
-                    legend.visible: false
-                    titleFont.pointSize: ScreenTools.defaultFontPointSize / 2
+                    id: view
+                    title: "Two Series, Common Axes"
+                    anchors.fill: parent
+//                    legend.visible: false
+                    antialiasing: true
+                    property point hoveredPoint: Qt.point( 0, 0 )
                     property bool hovered: false
-                    property point pressedPoint: Qt.point( 0, 0 )
-                    onSeriesAdded: dataSource.seriesAdded(series)
-                    onSeriesRemoved: dataSource.seriesRemoved(series)
+                    ValueAxis {
+                        id: axisX
+                        min: 0
+                        max: 50
+                        tickCount: 5
+                    }
+
+                    ValueAxis {
+                        id: axisY
+                        min: -0.5
+                        max: 1.5
+                    }
+
+                    LineSeries {
+                        id: series1
+                        axisX: axisX
+                        axisY: axisY
+                        onHovered: {
+//                            view.hoveredPoint = point
+//                            view.hovered = state
+                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        onPositionChanged: {
+                            var point = Qt.point( 0, 0 )
+                            point.x = mouse.x
+                            point.y = mouse.y
+                            var hoveredPoint = view.mapToValue( point, series1 )
+                            if( hoveredPoint.x >= 0 && hoveredPoint.x <= 50 ) {
+                                view.hovered = true
+                                view.hoveredPoint = hoveredPoint
+                            } else {
+                                view.hovered = false
+                            }
+                        }
+
+                        onWheel: {
+                            if( view.hovered ) {
+                                if( wheel.angleDelta.y > 0 ) {
+                                    if( axisX.max - axisX.min <= 2 ) {
+                                        return
+                                    }
+                                    view.zoomIn( view.hoveredPoint )
+                                } else {
+                                    view.zoomOut( view.hoveredPoint )
+                                    if( axisX.min <= 0 ) {
+                                        axisX.min = 0
+                                    }
+                                    if( axisX.max >= 50 ) {
+                                        axisX.max = 50
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function zoomIn( hoveredPoint ) {
+                        if( hoveredPoint.x - axisX.min <= 1 ) {
+                            return
+                        }
+                        var scale = parseFloat( ( hoveredPoint.x - axisX.min ) / ( axisX.max - axisX.min ) )
+                        axisX.min++
+                        axisX.max = ( hoveredPoint.x - axisX.min ) / scale + axisX.min
+                    }
+
+                    function zoomOut( hoveredPoint ) {
+                        var scale = parseFloat( ( hoveredPoint.x - axisX.min ) / ( axisX.max - axisX.min ) )
+                        axisX.min--
+                        axisX.max = ( hoveredPoint.x - axisX.min ) / scale + axisX.min
+                    }
+                }
+
+                // Add data dynamically to the series
+                Component.onCompleted: {
+                    for (var i = 0; i <= 50; i++) {
+                        series1.append(i, Math.random());
+                    }
                 }
             }
 
