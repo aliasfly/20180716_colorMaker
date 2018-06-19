@@ -40,7 +40,7 @@ Rectangle {
                 folder: shortcuts.home
                 onAccepted: {
                     console.log("You chose: " + fileDialog.fileUrl);
-                    colorMaker.ReadFile();
+                    openFile.ReadFile();
                     console.log("read  OK!!!");
                 }
                 onRejected: {
@@ -85,7 +85,7 @@ Rectangle {
                 anchors.leftMargin: 5;
                 onClicked:{
                     console.log("writeXML start");
-                    colorMaker.writeXML();
+                    openFile.writeXML();
                     console.log("writeXML end");
                 }
             }
