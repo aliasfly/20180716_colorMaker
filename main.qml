@@ -203,20 +203,17 @@ Rectangle {
                 border.width: 1.5;
                 border.color: "red"//"#888888";
                 ChartView {
-                      title: "Line"
-                      anchors.fill: parent
-                      antialiasing: true
+                      title: "Line";
+                      anchors.fill: parent;
+                      antialiasing: true;
 
-                      LineSeries {
-                          name: "LineSeries"
-                          XYPoint { x: 0; y: 0 }
-                          XYPoint { x: 1.1; y: 15.1 }
-                          XYPoint { x: 1.9; y: 3.3 }
-                          XYPoint { x: 2.1; y: 2.1 }
-                          XYPoint { x: 2.9; y: 4.9 }
-                          XYPoint { x: 3.4; y: 3.0 }
-                          XYPoint { x: 4.1; y: 3.3 }
-                      }
+                      StackedBarSeries {
+                        id: mySeries
+                        axisX: BarCategoryAxis { categories: ["2007", "2008", "2009", "2010", "2011", "2012" ] }
+                        BarSet { label: "Bob"; values: [2, 2, 3, 4, 5, 6] }
+                        BarSet { label: "Susan"; values: [5, 1, 2, 4, 1, 7] }
+                        BarSet { label: "James"; values: [3, 5, 8, 13, 5, 8] }
+                    }
                   }
             }
 
