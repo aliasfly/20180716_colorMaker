@@ -298,6 +298,13 @@ Connections{
         chartLineSeries.append(xvalue,0);
     }
 }
+Connections{
+    target:dataPlot;
+    onYvalueChanged:{
+        chartLineSeries.append(0,yvalue);
+    }
+}
+
 
 Connections{
     target: dataStore;
