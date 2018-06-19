@@ -1,20 +1,16 @@
-#include <QtGui/QGuiApplication>
+#include <QtWidgets/QApplication>
 #include <QtQuick/QQuickView>
 #include <QtQml>
 #include "colorMaker.h"
 #include "dataStore.h"
 #include "dataPlot.h"
 
-#include <QtWidgets/QApplication>
-#include <QtCore/QDir>
-#include <QtQuick/QQuickView>
-#include <QtQml/QQmlEngine>
-
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
     QQuickView viewer;
+
 #ifdef Q_OS_WIN
     QString extraImportPath(QStringLiteral("%1/../../../../%2"));
 #else
@@ -22,6 +18,7 @@ int main(int argc, char *argv[])
 #endif
     viewer.engine()->addImportPath(extraImportPath.arg(QGuiApplication::applicationDirPath(),
                                       QString::fromLatin1("qml")));
+
     QObject::connect(viewer.engine(), SIGNAL(quit()), &app, SLOT(quit()));//quit_use
     viewer.rootContext()->setContextProperty("colorMaker", new ColorMaker);
     viewer.rootContext()->setContextProperty("dataStore", new DataStore);
