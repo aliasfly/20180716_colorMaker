@@ -1,4 +1,5 @@
 #include "dataPlot.h"
+#include <QDebug>
 
 DataPlot::DataPlot(QObject *parent)
     :QObject(parent)
@@ -21,6 +22,7 @@ void DataPlot::setXvalue(const int &xvalue)
 {
         _xvalue=xvalue;
         emit xvalueChanged(_xvalue);
+        qDebug()<<"_xvalue="<<_xvalue;
 }
 
 int DataPlot::yvalue() const
@@ -31,15 +33,16 @@ void DataPlot::setYvalue(const int &yvalue)
 {
     _yvalue=yvalue;
     emit yvalueChanged(_yvalue);
+    qDebug()<<"_yvalue="<<_yvalue;
 }
 
 
 
 void DataPlot::produceXYvalue()
 {
-    for(int i=0;i<10;i++)
+    for(int i=1;i<11;i++)
     {
-//        DataPlot::setXvalue(i);
-//        DataPlot::setYvalue(i);
+        DataPlot::setXvalue(i);
+        DataPlot::setYvalue(i*2);
     }
 }

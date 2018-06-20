@@ -211,23 +211,11 @@ Rectangle {
                       LineSeries {
                          id:chartLineSeries;
                          name: "LineSeries";
-                         XYPoint { x: 0; y: 0 }
-                         XYPoint { x: 1.1; y: 2.1 }
-                         XYPoint { x: 1.9; y: 3.3 }
-                         XYPoint { x: 2.1; y: 2.1 }
-                         XYPoint { x: 2.9; y: 4.9 }
-                         XYPoint { x: 3.4; y: 3.0 }
-                         XYPoint { x: 4.1; y: 3.3 }
-//                         XYPoint.x:0;
-//                         XYPoint.y:0;
-//                         XYPoint.x:1;
-//                         XYPoint.y:1;
-//                         XYPoint.x:2;
-//                         XYPoint.y:2;
-//                         XYPoint.x:3;
-//                         XYPoint.y:3;
-//                         XYPoint.x:4;
-//                         XYPoint.y:4;
+                         XYPoint {
+                             id:xypoint;
+                             x:0;
+                             y:0;
+                         }
                     }
                   }
             }
@@ -312,13 +300,15 @@ Rectangle {
 Connections{
     target:dataPlot;
     onXvalueChanged:{
-        chartLineSeries.append(xvalue,0);
+        xypoint.x=xvalue;
+        console.debug("qmlxypoint.x=",xypoint.x);
     }
 }
 Connections{
     target:dataPlot;
     onYvalueChanged:{
-        chartLineSeries.append(0,yvalue);
+        xypoint.y=yvalue;
+        console.debug("qmlxypoint.y=",xypoint.y);
     }
 }
 
