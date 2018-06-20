@@ -39,7 +39,7 @@ void DataPlot::produceXYvalue()
 {
     for(int i=0;i<10;i++)
     {
-        DataPlot::setXvalue(i);
+//        DataPlot::setXvalue(i);
 //        DataPlot::setYvalue(i);
     }
 }
