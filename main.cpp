@@ -9,12 +9,12 @@ int main(int argc, char *argv[])
 
     QQuickView viewer;
 
+    qmlRegisterType<DataStore>("DataStore", 1, 0, "DataStore");
 
     QObject::connect(viewer.engine(), SIGNAL(quit()), &app, SLOT(quit()));//quit_use
 
     viewer.rootContext()->setContextProperty("dataStore", new DataStore);
 
-    qmlRegisterType<DataStore>("DataStore", 1, 0, "DataStore");
 
     viewer.setSource(QUrl("qrc:///main.qml"));
     viewer.setResizeMode(QQuickView::SizeRootObjectToView);//default

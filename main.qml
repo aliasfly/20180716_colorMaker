@@ -5,6 +5,7 @@ import QtQuick.Dialogs 1.3
 import DataStore 1.0
 
 Rectangle {
+    id:rect
     width: 500;
     height: 600;
     Rectangle {
@@ -18,38 +19,84 @@ Rectangle {
         color: Qt.rgba(0,0,0,1)            //color rgba(real red, real green, real blue, real alpha)
     }
     Text {
-        id: textlabel
+        id: textlabelR
         anchors.top:colorRect.bottom
-        anchors.margins: 20
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 20
+        anchors.left: rect.left
+        anchors.leftMargin: 90
         font.pixelSize: 40
-        text:"0"
+        text:"R:0"
+    }
+    Text {
+        id: textlabelG
+        anchors.top:colorRect.bottom
+        anchors.topMargin: 20
+        anchors.left: textlabelR.right
+        anchors.leftMargin: 50
+        font.pixelSize: 40
+        text:"G:0"
+    }
+    Text {
+        id: textlabelB
+        anchors.top:colorRect.bottom
+        anchors.topMargin: 20
+        anchors.left: textlabelG.right
+        anchors.leftMargin: 50
+        font.pixelSize: 40
+        text:"B:0"
     }
     Slider {
-        id:slider
+        id:sliderR
         width: 300
         height: 30
         stepSize: 1
         value: 0
         minimumValue: 0
         maximumValue:255
-        anchors.top: textlabel.bottom
-        anchors.margins: 20
+        anchors.top: textlabelR.bottom
+        anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
         onValueChanged:
         {
-            textlabel.text=value
-            colorRect.color=Qt.rgba(value/255,0,0,1)
+            textlabelR.text="R:"+value
+            dataStore.dealcolorR(value)
+            colorRect.color=Qt.rgba(dataStore.colorNumR,dataStore.colorNumG,dataStore.colorNumB,1)
         }
     }
-    Button {
-        width: 50
+    Slider {
+        id:sliderG
+        width: 300
         height: 30
-        anchors.top:slider.bottom
-        anchors.margins: 20
+        stepSize: 1
+        value: 0
+        minimumValue: 0
+        maximumValue:255
+        anchors.top: sliderR.bottom
+        anchors.topMargin: 20
         anchors.horizontalCenter: parent.horizontalCenter
-        onClicked: {
-            dataStore.dealcolor()
+        onValueChanged:
+        {
+            textlabelG.text="G:"+value
+            dataStore.dealcolorG(value)
+            colorRect.color=Qt.rgba(dataStore.colorNumR,dataStore.colorNumG,dataStore.colorNumB,1)
+        }
+    }
+    Slider {
+        id:sliderB
+        width: 300
+        height: 30
+        stepSize: 1
+        value: 0
+        minimumValue: 0
+        maximumValue:255
+        anchors.top: sliderG.bottom
+        anchors.topMargin: 20
+        anchors.horizontalCenter: parent.horizontalCenter
+        onValueChanged:
+        {
+            textlabelB.text="B:"+value
+            dataStore.dealcolorB(value)
+            colorRect.color=Qt.rgba(dataStore.colorNumR,dataStore.colorNumG,dataStore.colorNumB,1)
         }
     }
 }
