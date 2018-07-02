@@ -3,14 +3,11 @@ TEMPLATE = app
 QT += qml quick charts
 
 SOURCES += main.cpp \
-    dataStore.cpp \
-    dataPlot.cpp \
-    openFile.cpp
+    dataStore.cpp
 
 
 HEADERS += \
-    dataStore.h \
-    dataPlot.h \
-    openFile.h
+    dataStore.h
+
 
 RESOURCES += qml.qrc
