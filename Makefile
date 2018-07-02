@@ -754,7 +754,79 @@ moc_dataStore.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChartGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchartglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QtGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractAxis \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractaxis.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QPen \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qmatrix.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qline.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpainterpath.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QFont \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qset.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QXYSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qxyseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QBrush \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChart \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchart.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QLegend \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qlegend.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QGraphicsWidget \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMargins \
+		dataPlot.h \
 		dataStore.h \
 		moc_predefs.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
@@ -865,6 +937,7 @@ moc_openFile.cpp: /opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QObject \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		dataPlot.h \
 		openFile.h \
 		moc_predefs.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/bin/moc
@@ -1225,8 +1298,29 @@ main.o: main.cpp /opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QApplication \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qqmlpropertymap.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtQml/qtqmlversion.h \
 		openFile.h \
+		dataPlot.h \
 		dataStore.h \
-		dataPlot.h
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChartGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchartglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QtGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractAxis \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractaxis.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QPen \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QFont \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QXYSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qxyseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QBrush \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChart \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchart.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QLegend \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qlegend.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QGraphicsWidget \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicsitem.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 dataStore.o: dataStore.cpp dataStore.h \
@@ -1280,22 +1374,80 @@ dataStore.o: dataStore.cpp dataStore.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QString \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDebug \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdebug.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmap.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtextstream.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiodevice.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlocale.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvariant.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChartGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchartglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QtGlobal \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QAbstractAxis \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qabstractaxis.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QPen \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtguiglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qbrush.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvector.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qmatrix.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdatastream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qline.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpainterpath.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qshareddata.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QFont \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QVariant \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qlocale.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qset.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontiguouscache.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer.h \
-		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qsharedpointer_impl.h
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QXYSeries \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qxyseries.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/QBrush \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QChart \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qchart.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/QLegend \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCharts/qlegend.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/QGraphicsWidget \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicswidget.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qurlquery.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfile.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfiledevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qtouchdevice.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QMargins \
+		dataPlot.h \
+		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dataStore.o dataStore.cpp
 
 dataPlot.o: dataPlot.cpp dataPlot.h \
@@ -1417,6 +1569,7 @@ openFile.o: openFile.cpp openFile.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qobject_impl.h \
+		dataPlot.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/QFile \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfile.h \
 		/opt/Qt5.10.0/5.10.0/gcc_64/include/QtCore/qfiledevice.h \

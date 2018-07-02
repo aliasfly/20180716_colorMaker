@@ -1,6 +1,7 @@
 #ifndef OPENFILE_H
 #define OPENFILE_H
 #include <QObject>
+#include "dataPlot.h"
 
 class OpenFile : public QObject
 {

@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    qmlRegisterType<DataStore>("DataStore", 1, 0, "DataStore");
     QQuickView viewer;
 
     QObject::connect(viewer.engine(), SIGNAL(quit()), &app, SLOT(quit()));//quit_use

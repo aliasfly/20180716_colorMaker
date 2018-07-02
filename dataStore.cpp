@@ -1,7 +1,10 @@
 #include "dataStore.h"
 #include <QDebug>
 
-
+double DataStore::_xMinValue=0;
+double DataStore::_xMaxValue=40;
+double DataStore::_yMaxValue = 500;
+double DataStore::_yMinValue = 0;
 
 DataStore::DataStore(QObject *parent)
     :QObject(parent)
@@ -15,7 +18,7 @@ DataStore::DataStore(QObject *parent)
 
 DataStore::~DataStore()
 {
-
+    _axisX = _axisY = NULL;
 }
 
 
@@ -56,4 +59,35 @@ void DataStore::setStr3(const int &str3)
 {
     CCC_currentstr=str3;
     emit str3Changed(CCC_currentstr);
+}
+
+
+
+void DataStore::setAxisX(QAbstractAxis *axisX)
+{
+    _axisX = axisX;
+    _axisX->setRange(DataStore::_xMinValue,DataStore::_xMaxValue);
+}
+
+void DataStore::setAxisY(QAbstractAxis *axisY)
+{
+    _axisY = axisY;
+    _axisY->setRange(DataStore::_yMinValue,DataStore::_yMaxValue);
+}
+
+
+void DataStore::seriesAdded()
+{
+    bool yrangeChange = false;
+    DataPlot* dataPlot;
+    if(dataPlot->minValue() < DataStore::_yMinValue) {
+        DataStore::_yMinValue = dataPlot->minValue();
+        yrangeChange = true;
+    }
+    if(dataPlot->maxValue() > DataStore::_yMaxValue) {
+        DataStore::_yMaxValue = dataPlot->maxValue();
+        yrangeChange = true;
+    }
+    if(yrangeChange)
+        _axisY->setRange(DataStore::_yMinValue,DataStore::_yMaxValue);
 }

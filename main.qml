@@ -2,7 +2,7 @@ import QtQuick 2.2
 import QtCharts 2.2
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.3
-
+import DataStore 1.0
 
 Rectangle {
     width: 640;
@@ -204,19 +204,34 @@ Rectangle {
                 border.width: 1.5;
                 border.color: "#888888";
                 ChartView {
-                      title: "Line";
+                      id: chartView
+                      animationOptions: ChartView.NoAnimation              //Animation is disabled in the chart
+                      legend.visible: false                                         //Graphic title
                       anchors.fill: parent;
-                      antialiasing: true;
+                      onSeriesAdded: DataStore.seriesAdded()
 
-                      LineSeries {
-                         id:chartLineSeries;
-                         name: "LineSeries";
-                         XYPoint {
-                             id:xypoint;
-                             x:0;
-                             y:0;
-                         }
-                    }
+                      DataStore {
+                            id:dataStore
+                            axisX: axisX
+                            axisY: axisY
+//                            var myAxisX = chartView.axisX(lineSeries);
+//                            var myAxisY = chartView.axisY(lineSeries);
+//                            var scatter = chartView.createSeries(ChartView.SeriesTypeScatter, "scatter series", myAxisX, myAxisY);
+                      }
+
+
+
+                      DateTimeAxis {
+                          id: axisX
+                          titleFont.pointSize: 10
+                          labelsFont.pointSize: 10
+                      }
+
+                      ValueAxis {
+                          id: axisY
+                          titleFont.pointSize: 10
+                          labelsFont.pointSize: 10        //y zhou
+                      }
                   }
             }
 
@@ -331,5 +346,5 @@ Connections{
         textInputLine3.validator=str3;
     }
 }
-
 }
+

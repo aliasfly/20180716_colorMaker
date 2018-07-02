@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <stdlib.h>
+using namespace std;
 
 OpenFile::OpenFile(QObject *parent)
     :QObject(parent)

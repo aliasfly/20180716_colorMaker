@@ -18,6 +18,9 @@ public:
     int yvalue() const;
     void setYvalue(const int &yvalue);
 
+    double minValue() const { return _minValue; }           //to solve _minValue in #include "dataPlot.h" file
+    double maxValue() const { return _maxValue; }           //to solve _maxValue in #include "dataPlot.h" file
+
 signals:
     void xvalueChanged(const int &xvalue);
     void yvalueChanged(const int &yvalue);
@@ -28,6 +31,8 @@ public slots:
 private:
     int _xvalue;
     int _yvalue;
+    double _minValue;
+    double _maxValue;
 
 };
 
