@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     QObject::connect(viewer.engine(), SIGNAL(quit()), &app, SLOT(quit()));//quit_use
 
-    viewer.rootContext()->setContextProperty("dataStore", new DataStore);
+    viewer.rootContext()->setContextProperty("qml_dataStore", new DataStore);
 
 
     viewer.setSource(QUrl("qrc:///main.qml"));

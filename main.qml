@@ -59,8 +59,8 @@ Rectangle {
         onValueChanged:
         {
             textlabelR.text="R:"+value
-            dataStore.dealcolorR(value)
-            colorRect.color=Qt.rgba(dataStore.colorNumR,dataStore.colorNumG,dataStore.colorNumB,1)
+            qml_dataStore.dealcolorR(value)
+            colorRect.color=Qt.rgba(qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB,1)
         }
     }
     Slider {
@@ -77,8 +77,8 @@ Rectangle {
         onValueChanged:
         {
             textlabelG.text="G:"+value
-            dataStore.dealcolorG(value)
-            colorRect.color=Qt.rgba(dataStore.colorNumR,dataStore.colorNumG,dataStore.colorNumB,1)
+            qml_dataStore.dealcolorG(value)
+            colorRect.color=Qt.rgba(qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB,1)
         }
     }
     Slider {
@@ -95,8 +95,8 @@ Rectangle {
         onValueChanged:
         {
             textlabelB.text="B:"+value
-            dataStore.dealcolorB(value)
-            colorRect.color=Qt.rgba(dataStore.colorNumR,dataStore.colorNumG,dataStore.colorNumB,1)
+            qml_dataStore.dealcolorB(value)
+            colorRect.color=Qt.rgba(qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB,1)
         }
     }
 }

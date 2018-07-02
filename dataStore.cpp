@@ -17,8 +17,8 @@ DataStore::~DataStore()
 
 void DataStore::dealcolorR(int value)
 {
-   float temp=float(value);
-   _colorNumR = float(temp/255);
+//   float temp=float(value);
+   _colorNumR = float(value)/255;
    qDebug()<<"value="<<value;
    qDebug()<<"are you ok?";
    qDebug()<<"colorNumR="<<_colorNumR;
