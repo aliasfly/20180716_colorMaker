@@ -7,7 +7,7 @@ import DataStore 1.0
 Rectangle {
     id:rect
     width: 500;
-    height: 600;
+    height: 690;
     Button {
         id:button
         width: 100
@@ -24,6 +24,7 @@ Rectangle {
             sliderB.value=0
             qml_dataStore.produceRand()
             colorRect.color=Qt.rgba(qml_dataStore.randColorNumR,qml_dataStore.randColorNumG,qml_dataStore.randColorNumB,1)
+            leftBarColunm.values=[qml_dataStore.randColorNumR,qml_dataStore.randColorNumG,qml_dataStore.randColorNumB]
         }
     }
     Rectangle {
@@ -76,6 +77,7 @@ Rectangle {
 //            textlabelR.text="R:"+value
             qml_dataStore.dealcolorR(value)
             colorRectRight.color=Qt.rgba(qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB,1)
+            rightBarColunm.values=[qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB]
         }
     }
     Slider {
@@ -94,6 +96,7 @@ Rectangle {
 //            textlabelG.text="G:"+value
             qml_dataStore.dealcolorG(value)
             colorRectRight.color=Qt.rgba(qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB,1)
+            rightBarColunm.values=[qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB]
         }
     }
     Slider {
@@ -112,6 +115,7 @@ Rectangle {
 //            textlabelB.text="B:"+value
             qml_dataStore.dealcolorB(value)
             colorRectRight.color=Qt.rgba(qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB,1)
+            rightBarColunm.values=[qml_dataStore.colorNumR,qml_dataStore.colorNumG,qml_dataStore.colorNumB]
         }
     }
     Rectangle {
@@ -129,6 +133,36 @@ Rectangle {
             anchors.left: parent.left
             anchors.leftMargin: 100
             font.pixelSize: 20
+        }
+    }
+    Rectangle {
+        id:rectChartView
+        width: 430
+        height: 230
+        anchors.left:rectScore.left
+        anchors.top:rectScore.bottom
+        anchors.topMargin: 20
+        border.color: "#888888"
+        ChartView {
+            id:chartView
+            anchors.fill: parent
+            legend.visible: true
+            BarSeries {
+                  id: myBarSeries
+                  axisX: BarCategoryAxis {
+                      categories: ["R","G","B"]
+                  }
+                  BarSet {
+                      id:leftBarColunm
+                      label: "left"
+                      values: [1,1,1]
+                  }
+                  BarSet {
+                      id:rightBarColunm
+                      label: "right"
+                      values: [1,1,1]
+                  }
+           }
         }
     }
 }
